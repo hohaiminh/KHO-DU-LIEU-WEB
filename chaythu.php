@@ -16,8 +16,8 @@
     // 
     include_once(__DIR__ . '/connect.php');
     // 2. Chuẩn bị QUERY
-    $tenhinhthucthanhtoan = 'aaaa'; //$_POST['httt_ten'];
-    $sql = "INSERT INTO `hinhthucthanhtoan`(httt_ten) VALUES(N'Chuyen');";
+    $tenhinhthucthanhtoan = 'MINH MINH'; //$_POST['httt_ten'];
+    $sql = "INSERT INTO `hinhthucthanhtoan`(httt_ten) VALUES(N'$tenhinhthucthanhtoan');";
     
    var_dump($sql);
     die;

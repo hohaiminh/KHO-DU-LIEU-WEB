@@ -15,7 +15,7 @@
     // 2. Chuẩn bị QUERY
     // HERE DOC
     $httt_ma = 1;
-    $httt_ten = 'chuyển khoản ngân hàng updated';
+    $httt_ten = 'MOI NE';
     $sql = <<<EOT
     UPDATE hinhthucthanhtoan
     SET

@@ -60,7 +60,7 @@
         // Truy vấn database để lấy danh sách
         // 1. Include file cấu hình kết nối đến database, khởi tạo kết nối $conn
         // C:\xampp\htdocs\web02\
-        include_once(__DIR__ . '/../../../connect.php');
+        include_once(__DIR__ . '/Minh/connect.php');
         // 2. Chuẩn bị QUERY
         $httt_ten = $_POST['httt_ten']; //new new
         $sql = "INSERT INTO `hinhthucthanhtoan`(httt_ten) VALUES('$httt_ten');";

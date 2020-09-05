@@ -82,7 +82,7 @@
     <?php include_once(__DIR__ . '/../../layouts/partials/footer.php'); ?>
 
 
-    <script>
+    <!-- <script>
     $(document).ready(function() {
       $("#frmLoaiSanPham").validate({
         rules: {
@@ -138,7 +138,7 @@
         }
       });
     });
-  </script>
+  </script> -->
 
 
 <?php include_once(__DIR__ . '/../../layouts/scripts.php'); ?>

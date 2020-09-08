@@ -7,6 +7,9 @@
     <title>Document</title>
 
         <?php include_once(__DIR__ . '/../../layouts/styles.php'); ?>
+
+        <link rel="stylesheet" type="text/css" href="../../../assets/vendor/DataTables/datatables.min.css"/>
+
 </head>
 
 <body>
@@ -89,9 +92,22 @@ EOT;
     // var_dump($data);die;
     // print_r($data);die;
     ?>
-    <table border="1" width="100%">
-       
-            <tr>
+
+     <a href="create.php" class="btn btn-primary">Thêm mới</a>
+    <table border="1" width="100%" id="tblDanhsach" class="table table-bordered">
+    <thead>
+                        <tr>
+                            <th>Mã sản phẩm</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Giá sản phẩm</th>
+                            <th>Loại sản phẩm</th>
+                            <th>Nhà sản xuất</th>
+                            <th>Khuyến mãi</th>
+                            <th>hành động</th>
+                        </tr>
+                    </thead>
+
+            <!-- <tr>
                 <td>Ma sp</td>
                 <td>Ten sp</td>
                 <td>Gia sp</td>
@@ -101,29 +117,28 @@ EOT;
 
 
             </tr>
-      
+       -->
        
-            <?php foreach($data as $sp): ?>
-            <tr>
-                <td><?php echo $sp['sp_ma'] ?></td>
-                <td><?= $sp['sp_ten']; ?></td>
-                <td><?= $sp['sp_gia']; ?></td>
-                <td><?= $sp['lsp_ma']; ?></td>
-                <td><?= $sp['nsx_ma']; ?></td>
-                <td><?= $sp['km_tomtat'] ?></td>
-                <td>
-                                <!-- Nút sửa, bấm vào sẽ hiển thị form hiệu chỉnh thông tin dựa vào khóa chính `sp_ma` -->
-                                <a href="edit.php?sp_ma=<?= $sp['sp_ma'] ?>" class="btn btn-warning">
-                                    Sửa
-                                </a>
-                                <!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `sp_ma` -->
-                                <a href="delete.php?sp_ma=<?= $sp['sp_ma'] ?>" class="btn btn-danger">
-                                    Xóa
-                                </a>
-                            </td>
+           
 
-            </tr>
-            <?php endforeach; ?>
+
+             <tbody>
+                        <?php foreach($data as $sp): ?>
+                        <tr>
+                            <td><?php echo $sp['sp_ma'] ?></td>
+                            <td><?= $sp['sp_ten'] ?></td>
+                            <td><?= $sp['sp_gia'] ?></td>
+                            <td><?= $sp['lsp_ten'] ?></td>
+                            <td><?= $sp['nsx_ten'] ?></td>
+                            <td><?= $sp['km_tomtat'] ?></td>
+                        
+                            <td>
+                                <a href="edit.php?sp_ma=<?php echo $sp['sp_ma'] ?>" class="btn btn-success">Sửa</a>
+                                <a href="delete.php?sp_ma=<?php echo $sp['sp_ma'] ?>" class="btn btn-danger">Xóa</a>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
        
     </table>
 
@@ -141,6 +156,16 @@ EOT;
 
 
 <?php include_once(__DIR__ . '/../../layouts/scripts.php'); ?>
+<script type="text/javascript" src="../../../assets/vendor/DataTables/datatables.min.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $('#tblDanhsach').DataTable();
+    });
+    </script>
+
+
+    <script type="text/javascript" src="../../../assets/vendor/sweetalert/sweetalert.min.js"></script>
 
 </body>
 </html>

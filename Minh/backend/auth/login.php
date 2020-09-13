@@ -90,7 +90,7 @@
                     error_reporting(E_ALL);
                     // Truy vấn database
                     // 1. Include file cấu hình kết nối đến database, khởi tạo kết nối $conn
-                    include_once(__DIR__ . '/../../dbconnect.php');
+                    include_once(__DIR__ . '/../../connect.php');
                     // Chưa đăng nhập -> Xử lý logic/nghiệp vụ kiểm tra Tài khoản và Mật khẩu trong database
                     if (isset($_POST['btnLogin'])) {
                         // Phân tách thông tin từ người dùng gởi đến qua Request POST
@@ -111,7 +111,7 @@ EOT;
                             $_SESSION['kh_tendangnhap_logged'] = $kh_tendangnhap;
                             echo 'Đăng nhập thành công!';
                             // Điều hướng (redirect) về trang chủ
-                            echo '<script>location.href = "/php/myhand/backend/pages/dashboard.php";</script>';
+                            echo '<script>location.href = "/KHO-DU-LIEU-WEB/Minh/backend/pages/dashboard.php";</script>';
                         } else {
                             echo '<h2 style="color: red;">Đăng nhập thất bại!</h2>';
                         }

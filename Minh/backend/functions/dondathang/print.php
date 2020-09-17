@@ -54,7 +54,7 @@ FROM `dondathang` ddh
 JOIN `sanpham_dondathang` spddh ON ddh.dh_ma = spddh.dh_ma
 JOIN `khachhang` kh ON ddh.kh_tendangnhap = kh.kh_tendangnhap
 JOIN `hinhthucthanhtoan` httt ON ddh.httt_ma = httt.httt_ma
-WHERE ddh.dh_ma=2
+WHERE ddh.dh_ma=$dh_ma
 GROUP BY ddh.dh_ma, ddh.dh_ngaylap, ddh.dh_ngaygiao, ddh.dh_noigiao, ddh.dh_trangthaithanhtoan, httt.httt_ten, kh.kh_ten, kh.kh_dienthoai
 EOT;
 
@@ -89,7 +89,7 @@ FROM `sanpham_dondathang` spddh
 JOIN `sanpham` sp ON spddh.sp_ma = sp.sp_ma
 JOIN `loaisanpham` lsp ON sp.lsp_ma = lsp.lsp_ma
 JOIN `nhasanxuat` nsx ON sp.nsx_ma = nsx.nsx_ma
-WHERE spddh.dh_ma=2
+WHERE spddh.dh_ma=$dh_ma
 EOT;
 
     // Thực thi câu truy vấn SQL để lấy về dữ liệu ban đầu của record cần update

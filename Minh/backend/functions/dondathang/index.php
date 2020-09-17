@@ -1,15 +1,26 @@
-<!-- Nhúng file cấu hình để xác định được Tên và Tiêu đề của trang hiện tại người dùng đang truy cập -->
-
+<?php
+// hàm `session_id()` sẽ trả về giá trị SESSION_ID (tên file session do Web Server tự động tạo)
+// - Nếu trả về Rỗng hoặc NULL => chưa có file Session tồn tại
+if (session_id() === '') {
+  // Yêu cầu Web Server tạo file Session để lưu trữ giá trị tương ứng với CLIENT (Web Browser đang gởi Request)
+  session_start();
+}
+?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NenTang.vn</title>
 
-     <?php include_once(__DIR__ . '/../../layouts/styles.php'); ?>
+    <!-- Nhúng file Quản lý các Liên kết CSS dùng chung cho toàn bộ trang web -->
+    <?php include_once(__DIR__ . '/../../layouts/styles.php'); ?>
 
-<link rel="stylesheet" type="text/css" href="../../../assets/vendor/DataTables/datatables.min.css"/>
-
+    <!-- DataTable CSS -->
+    <link href="/KHO-DU-LIEU-WEB/Minh/assets/vendor/DataTables/datatables.min.css" type="text/css" rel="stylesheet" />
+    <link href="/KHO-DU-LIEU-WEB/Minh/assets/vendor/DataTables/Buttons-1.6.3/css/buttons.bootstrap4.min.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -30,10 +41,13 @@
 
                 <!-- Block content -->
                 <?php
-                 ini_set('display_errors', 1);
-                 ini_set('display_startup_errors', 1);
-                 error_reporting(E_ALL);
- 
+                // Hiển thị tất cả lỗi trong PHP
+                // Chỉ nên hiển thị lỗi khi đang trong môi trường Phát triển (Development)
+                // Không nên hiển thị lỗi trên môi trường Triển khai (Production)
+                ini_set('display_errors', 1);
+                ini_set('display_startup_errors', 1);
+                error_reporting(E_ALL);
+
                 // Truy vấn database để lấy danh sách
                 // 1. Include file cấu hình kết nối đến database, khởi tạo kết nối $conn
                 include_once(__DIR__ . '/../../../connect.php');
@@ -51,9 +65,9 @@
     GROUP BY ddh.dh_ma, ddh.dh_ngaylap, ddh.dh_ngaygiao, ddh.dh_noigiao, ddh.dh_trangthaithanhtoan, httt.httt_ten, kh.kh_ten, kh.kh_dienthoai
 EOT;
 
-
                 // 3. Thực thi câu truy vấn SQL để lấy về dữ liệu
                 $result = mysqli_query($conn, $sql);
+
                 // 4. Khi thực thi các truy vấn dạng SELECT, dữ liệu lấy về cần phải phân tích để sử dụng
                 // Thông thường, chúng ta sẽ sử dụng vòng lặp while để duyệt danh sách các dòng dữ liệu được SELECT
                 // Ta sẽ tạo 1 mảng array để chứa các dữ liệu được trả về
@@ -73,9 +87,8 @@ EOT;
                 }
                 ?>
 
-
-                                <!-- Nút thêm mới, bấm vào sẽ hiển thị form nhập thông tin Thêm mới -->
-                                <a href="create.php" class="btn btn-primary">
+                <!-- Nút thêm mới, bấm vào sẽ hiển thị form nhập thông tin Thêm mới -->
+                <a href="create.php" class="btn btn-primary">
                     Thêm mới
                 </a>
                 <table id="tblDanhSach" class="table table-bordered table-hover table-sm table-responsive mt-2">
@@ -147,35 +160,55 @@ EOT;
     <?php include_once(__DIR__ . '/../../layouts/scripts.php'); ?>
 
     <!-- Các file Javascript sử dụng riêng cho trang này, liên kết tại đây -->
+    <!-- DataTable JS -->
+    <script src="/KHO-DU-LIEU-WEB/Minh/assets/vendor/DataTables/datatables.min.js"></script>
+    <script src="/KHO-DU-LIEU-WEB/Minh/assets/vendor/DataTables/Buttons-1.6.3/js/buttons.bootstrap4.min.js"></script>
+    <script src="/KHO-DU-LIEU-WEB/Minh/assets/vendor/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
+    <script src="/KHO-DU-LIEU-WEB/Minh/assets/vendor/DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
 
+    <!-- SweetAlert -->
+    <script src="/KHO-DU-LIEU-WEB/Minh/assets/vendor/sweetalert/sweetalert.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Yêu cầu DataTable quản lý datatable #tblDanhSach
+            $('#tblDanhSach').DataTable({
+                dom: 'Blfrtip',
+                buttons: [
+                    'copy', 'excel', 'pdf'
+                ]
+            });
 
-    <script type="text/javascript" src="../../../assets/vendor/DataTables/datatables.min.js"></script>
-    <script type="text/javascript" src="../../../assets/vendor/DataTables/Buttons-1.6.3/js/buttons.bootstrap4.min.js"></script>
-    <script type="text/javascript" src="../../../assets/vendor/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
-    <script type="text/javascript" src="../../../assets/vendor/DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
+            // Cảnh báo khi xóa
+            // 1. Đăng ký sự kiện click cho các phần tử (element) đang áp dụng class .btnDelete
+            $('.btnDelete').click(function() {
+                // Click hanlder
+                // 2. Sử dụng thư viện SweetAlert để hiện cảnh báo khi bấm nút xóa
+                swal({
+                        title: "Bạn có chắc chắn muốn xóa?",
+                        text: "Một khi đã xóa, không thể phục hồi....",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) { // Nếu đồng ý xóa
 
-<script>
-$(document).ready(function() {
-    swal("HO HAI MINH ");
-    $('#tblDanhsach').DataTable({
-        dom: 'Blfrtip',
-        buttons: [
-            'copy','excel','pdf'
-        ]
-    });
-});
-</script>
+                            // 3. Lấy giá trị của thuộc tính (custom attribute HTML) 'dh_ma'
+                            // var dh_ma = $(this).attr('data-dh_ma');
+                            var dh_ma = $(this).data('dh_ma');
+                            var url = "delete.php?dh_ma=" + dh_ma;
 
+                            // Điều hướng qua trang xóa với REQUEST GET, có tham số dh_ma=...
+                            location.href = url;
+                        } else { // Nếu không đồng ý xóa
+                            swal("Cẩn thận hơn nhé!");
+                        }
+                    });
 
+            });
+        });
+    </script>
 
-
-
-
-
-
-<script type="text/javascript" src="../../../assets/vendor/sweetalert/sweetalert.min.js"></script>
-
-    <!-- <script src="..."></script> -->
 </body>
 
 </html>

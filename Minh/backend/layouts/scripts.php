@@ -1,6 +1,6 @@
 <script src="/KHO-DU-LIEU-WEB/Minh/assets/vendor/jQuery/jquery-3.5.1.min.js"></script>
 <script src="/KHO-DU-LIEU-WEB/Minh/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="/KHO-DU-LIEU-WEB/Minh/assets/vendor/ChartsJs/Chart.min.js/"></script>
+<!-- <script src="/KHO-DU-LIEU-WEB/Minh/assets/vendor/ChartsJs/Chart.min.js/"></script> -->
 
 
 

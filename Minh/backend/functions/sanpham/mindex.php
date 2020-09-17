@@ -11,6 +11,9 @@
 <link rel="stylesheet" type="text/css" href="../../../assets/vendor/DataTables/datatables.min.css"/>
 
 </head>
+ <!-- DataTable CSS -->
+ <link href="/KHO-DU-LIEU-WEB/Minh/assets/vendor/DataTables/datatables.css" type="text/css" rel="stylesheet" />
+    <link href="/KHO-DU-LIEU-WEB/Minh/assets/vendor/DataTables/Buttons-1.6.3/css/buttons.bootstrap4.min.css" type="text/css" rel="stylesheet" />
 
 <body class="d-flex flex-column h-100">
     <!-- header -->
@@ -94,7 +97,7 @@ EOT;
                 ?>
 
                 <!-- Nút thêm mới, bấm vào sẽ hiển thị form nhập thông tin Thêm mới -->
-                <a href="create.php" class="btn btn-primary">
+                <a href="mcreate.php" class="btn btn-primary">
                     Thêm mới
                 </a>
                 <table class="table table-bordered table-hover mt-2" id="tblDanhsach" >
@@ -138,9 +141,13 @@ EOT;
                                 </a>
 
                                 <!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `sp_ma` -->
-                                <a href="delete.php?sp_ma=<?= $sanpham['sp_ma'] ?>" class="btn btn-danger">
+                                <a href="delete.php?sp_ma=<?= $sanpham['sp_ma'] ?>" class="btn btn-danger btnDelete">
                                     Xóa
                                 </a>
+
+               
+                           
+                                
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -166,17 +173,46 @@ EOT;
     <script type="text/javascript" src="../../../assets/vendor/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
     <script type="text/javascript" src="../../../assets/vendor/DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
 
-<script>
-$(document).ready(function() {
-    swal("Hello world!");
-    $('#tblDanhsach').DataTable({
-        dom: 'Blfrtip',
-        buttons: [
-            'copy','excel','pdf'
-        ]
+    <script>
+    $(document).ready(function() {
+        // xử lý table danh sách
+        $('#tblDanhsach').DataTable({
+            dom: 'Blfrtip',
+            buttons: [
+                'copy', 'excel', 'pdf'
+            ]
+        });
+        // Cảnh báo khi xóa
+        // 1. Đăng ký sự kiện click cho các phần tử (element) đang áp dụng class .btnDelete
+        $('.btnDelete').click(function() {
+            // Click hanlder
+            // Hiện cảnh báo khi bấm nút xóa
+            swal({
+                title: "Bạn có chắc chắn muốn xóa?",
+                text: "Một khi đã xóa, không thể phục hồi....",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                debugger;
+                if (willDelete) { // Nếu đồng ý xóa
+                    
+                    // 2. Lấy giá trị của thuộc tính (custom attribute HTML) 'sp_ma'
+                    // var sp_ma = $(this).attr('data-sp_ma');
+                    var sp_ma = $(this).data('sp_ma');
+                    var url = "delete.php?sp_ma=" + sp_ma;
+                    
+                    // Điều hướng qua trang xóa với REQUEST GET, có tham số sp_ma=...
+                    location.href = url;
+                } else {
+                    swal("Cẩn thận hơn nhé!");
+                }
+            });
+           
+        });
     });
-});
-</script>
+    </script>
 
 
 

@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-        <?php include_once(__DIR__ . '/../layouts/styles.php'); ?>
+        <?php include_once(__DIR__ . '/../../layouts/styles.php'); ?>
 </head>
 
 <body>
     <!-- header -->
 
-    <?php include_once(__DIR__ . '/../layouts/partials/header.php'); ?>
+    <?php include_once(__DIR__ . '/../../layouts/partials/header.php'); ?>
 
     
 
@@ -23,7 +23,7 @@
 
         <!-- slidebar -->
 
-            <?php include_once(__DIR__ . '/../layouts/partials/slidebar.php'); ?>
+            <?php include_once(__DIR__ . '/../../layouts/partials/slidebar.php'); ?>
         </div>
 
         <div class="col-md-8">
@@ -82,10 +82,10 @@ EOT;
 </div>
         <!-- footer -->
 
-    <?php include_once(__DIR__ . '/../layouts/partials/footer.php'); ?>
+    <?php include_once(__DIR__ . '/../../layouts/partials/footer.php'); ?>
 
 
-<?php include_once(__DIR__ . '/../layouts/scripts.php'); ?>
+<?php include_once(__DIR__ . '/../../layouts/scripts.php'); ?>
 
 </body>
 </html>

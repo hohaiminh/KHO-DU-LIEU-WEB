@@ -1,12 +1,9 @@
-<!-- Nhúng file cấu hình để xác định được Tên và Tiêu đề của trang hiện tại người dùng đang truy cập -->
-<?php include_once(__DIR__ . '/../../layouts/config.php'); ?>
-
 <!DOCTYPE html>
 <html>
 
 <head>
   <!-- Nhúng file quản lý phần HEAD -->
-  <?php include_once(__DIR__ . '/../../layouts/head.php'); ?>
+
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -17,7 +14,7 @@
   <div class="container-fluid">
     <div class="row">
       <!-- sidebar -->
-      <?php include_once(__DIR__ . '/../../layouts/partials/sidebar.php'); ?>
+      <?php include_once(__DIR__ . '/../../layouts/partials/slidebar.php'); ?>
       <!-- end sidebar -->
 
       <main role="main" class="col-md-10 ml-sm-auto px-4 mb-2">
@@ -29,7 +26,7 @@
         <?php
         // Truy vấn database để lấy danh sách
         // 1. Include file cấu hình kết nối đến database, khởi tạo kết nối $conn
-        include_once(__DIR__ . '/../../../dbconnect.php');
+        include_once(__DIR__ . '/../../../connect.php');
 
         // 2. Chuẩn bị câu truy vấn $sql
         $stt = 1;

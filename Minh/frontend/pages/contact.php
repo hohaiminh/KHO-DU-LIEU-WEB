@@ -58,7 +58,7 @@ if (session_id() === '') {
                 </div>
             </div>
         </div>
-        <!-- End block content -->
+       
     </main>
 
 

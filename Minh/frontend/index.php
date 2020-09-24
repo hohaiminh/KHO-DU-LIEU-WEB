@@ -18,7 +18,7 @@ if (session_id() === '') {
     <!-- Nhúng file Quản lý các Liên kết CSS dùng chung cho toàn bộ trang web -->
     <?php include_once(__DIR__ . '/layouts/styles.php'); ?>
 
-    <link href="/KHO-DU-LIEU-WEB/Minh/assets/frontend/css/style.css" type="text/css" rel="stylesheet" />
+    <!-- <link href="/KHO-DU-LIEU-WEB/Minh/assets/frontend/css/style.css" type="text/css" rel="stylesheet" /> -->
 
     <style>
         .homepage-slider-img {
@@ -88,7 +88,7 @@ EOT;
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="/KHO-DU-LIEU-WEB/Minh/assets/frontend/img/slider-1.jpg" class="img-fluid homepage-slider-img" />
+                    <img src="/KHO-DU-LIEU-WEB/Minh/assets/uploads/products/aaaa.jpeg" class="img-fluid homepage-slider-img" />
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1>Nền Tảng - Nơi mua sắm tuyệt vời</h1>
@@ -97,7 +97,7 @@ EOT;
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="/KHO-DU-LIEU-WEB/Minh/assets/frontend/img/slider-2.jpg" class="img-fluid homepage-slider-img" />
+                    <img src="/KHO-DU-LIEU-WEB/Minh/assets/uploads/products/aaaa.jpeg" class="img-fluid homepage-slider-img" />
                     <div class="container">
                         <div class="carousel-caption">
                             <h1>Hàng triệu sản phẩm - Lựa chọn mỏi tay</h1>
@@ -106,7 +106,7 @@ EOT;
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="/php/myhand/assets/frontend/img/slider-3.jpg" class="img-fluid homepage-slider-img" />
+                    <img src="/KHO-DU-LIEU-WEB/Minh/assets/uploads/products/aaaa.jpeg" class="img-fluid homepage-slider-img" />
                     <div class="container">
                         <div class="carousel-caption text-right">
                             <h1>Chất lượng là Hàng đầu.</h1>
@@ -130,17 +130,19 @@ EOT;
             <!-- Three columns of text below the carousel -->
             <div class="row">
                 <div class="col-lg-4 text-center">
-                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="/php/myhand/assets/frontend/img/icon-1.png" />
+                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="/KHO-DU-LIEU-WEB/Minh/assets/macdinh/1641036.jpg" />
                     <h2>Đặt hàng</h2>
                     <p>Chọn sản phẩm bạn yêu thích, và Đặt hàng.</p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4 text-center">
-                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="/php/myhand/assets/frontend/img/icon-2.png" />
+                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="/KHO-DU-LIEU-WEB/Minh/assets/macdinh/1641036.jpg" />
                     <h2>Tạo đơn hàng</h2>
                     <p>Theo dõi đơn hàng của bạn.</p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4 text-center">
-                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="/php/myhand/assets/frontend/img/icon-3.png" />
+                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="/KHO-DU-LIEU-WEB/Minh/assets/macdinh/1641036.jpg
+                    
+                    " />
                     <h2>Giao hàng</h2>
                     <p>Giao hàng tận nơi.</p>
                 </div><!-- /.col-lg-4 -->
@@ -158,7 +160,7 @@ EOT;
                     <p class="lead">Nơi mua sắm tuyệt vời cho mọi lứa tuổi.</p>
                 </div>
                 <div class="col-md-5">
-                    <img src="/php/myhand/assets/frontend/img/marketing-1.png" class="img-fluid" />
+                    <img src="/KHO-DU-LIEU-WEB/Minh/assets/uploads/products/aaaa.jpeg" class="img-fluid" />
                 </div>
             </div>
 
@@ -171,7 +173,7 @@ EOT;
                     <p class="lead">Hệ thống theo dõi đơn hàng chi tiết, thông tin mọi lúc mọi nơi.</p>
                 </div>
                 <div class="col-md-5 order-md-1">
-                    <img src="/php/myhand/assets/frontend/img/marketing-2.png" class="img-fluid" />
+                    <img src="/KHO-DU-LIEU-WEB/Minh/assets/uploads/products/aaaa.jpeg" class="img-fluid" />
                 </div>
             </div>
 
@@ -215,21 +217,22 @@ EOT;
                                     <!-- Nếu có hình sản phẩm thì hiển thị -->
                                     <?php if (!empty($sanpham['hsp_tentaptin'])) : ?>
                                         <div class="container-img">
-                                            <a href="/php/myhand/frontend/sanpham/detail.php?sp_ma=<?= $sanpham['sp_ma'] ?>">
-                                                <img class="bd-placeholder-img card-img-top img-fluid" width="100%" height="350" src="/php/myhand/assets/uploads/products/<?= $sanpham['hsp_tentaptin'] ?>" />
+                                            <a href="/KHO-DU-LIEU-WEB/Minh/frontend/sanpham/detail.php?sp_ma=<?= $sanpham['sp_ma'] ?>">
+                                                <img class="bd-placeholder-img card-img-top img-fluid" width="100%" height="350" src="/KHO-DU-LIEU-WEB/Minh/assets/macdinh/1641036.jpg<?= $sanpham['hsp_tentaptin'] ?>" />
                                             </a>
                                         </div>
                                         <!-- Nếu không có hình sản phẩm thì hiển thị ảnh mặc định -->
                                     <?php else : ?>
                                         <div class="container-img">
-                                            <a href="/php/myhand/frontend/sanpham/detail.php?sp_ma=<?= $sanpham['sp_ma'] ?>">
-                                                <img class="bd-placeholder-img card-img-top img-fluid" width="100%" height="350" src="/php/myhand/assets/shared/img/default-image_600.png" />
+                                            <a href="/KHO-DU-LIEU-WEB/Minh/frontend/sanpham/detail.php?sp_ma=<?= $sanpham['sp_ma'] ?>">
+                                                <img class="bd-placeholder-img card-img-top img-fluid" width="100%" height="350" src="/KHO-DU-LIEU-WEB/Minh/assets/macdinh/1641036.jpg" />
                                             </a>
                                         </div>
                                     <?php endif; ?>
                                 </div>
+
                                 <div class="card-body">
-                                    <a href="/php/myhand/frontend/sanpham/detail.php?sp_ma=<?= $sanpham['sp_ma'] ?>">
+                                    <a href="/KHO-DU-LIEU-WEB/Minh/frontend/sanpham/detail.php?sp_ma=<?= $sanpham['sp_ma'] ?>">
                                         <h5><?= $sanpham['sp_ten'] ?></h5>
                                     </a>
                                     <h6><?= $sanpham['lsp_ten'] ?></h6>

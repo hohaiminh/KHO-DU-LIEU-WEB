@@ -18,7 +18,7 @@ if (session_id() === '') {
     <!-- Nhúng file Quản lý các Liên kết CSS dùng chung cho toàn bộ trang web -->
     <?php include_once(__DIR__ . '/../layouts/styles.php'); ?>
 
-    <link href="/KHO-DU-LIEU-WEB/Minh/assets/frontend/css/style.css" type="text/css" rel="stylesheet" />
+    <!-- <link href="/KHO-DU-LIEU-WEB/Minh/assets/frontend/css/style.css" type="text/css" rel="stylesheet" /> -->
 
     <style>
         body {
@@ -359,7 +359,7 @@ EOT;
                                     <div class="preview-pic tab-content">
                                         <?php foreach ($sanphamRow['danhsachhinhanh'] as $hinhsanpham) : ?>
                                             <div class="tab-pane <?= ($hinhsanpham == $hinhsanphamdautien) ? 'active' : '' ?>" id="pic-<?= $hinhsanpham['hsp_ma'] ?>">
-                                                <img src="/KHO-DU-LIEU-WEB/Minh/assets/uploads/products/<?= $hinhsanpham['hsp_tentaptin'] ?>" />
+                                                <img src="/KHO-DU-LIEU-WEB/Minh/assets/uploads/products/aaaa.jpeg<?= $hinhsanpham['hsp_tentaptin'] ?>" />
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
@@ -367,7 +367,7 @@ EOT;
                                         <?php foreach ($sanphamRow['danhsachhinhanh'] as $hinhsanpham) : ?>
                                             <li class="<?= ($hinhsanpham == $hinhsanphamdautien) ? 'active' : '' ?>">
                                                 <a data-target="#pic-<?= $hinhsanpham['hsp_ma'] ?>" data-toggle="tab">
-                                                    <img src="/php/myhand/assets/uploads/products/<?= $hinhsanpham['hsp_tentaptin'] ?>" />
+                                                    <img src="/KHO-DU-LIEU-WEB/Minh/assets/uploads/products/aaaa.jpeg<?= $hinhsanpham['hsp_tentaptin'] ?>" />
                                                 </a>
                                             </li>
                                         <?php endforeach; ?>
@@ -474,7 +474,7 @@ EOT;
                 success: function(data) {
                     console.log(data);
                     var htmlString =
-                        `Sản phẩm đã được thêm vào Giỏ hàng. <a href="/KHO-DU-LIEU-WEB/Minh/frontend/thanhtoan/giohang.php">Xem Giỏ hàng</a>.`;
+                        `Sản phẩm đã được thêm vào Giỏ hàng. <a href="/KHO-DU-LIEU-WEB/Minh/frontend/thanhtoan/cart.php">Xem Giỏ hàng</a>.`;
                     $('#thongbao').html(htmlString);
                     // Hiện thông báo
                     $('.alert').removeClass('d-none').addClass('show');

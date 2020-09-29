@@ -8,7 +8,7 @@
 <body>
   <h1>Form đăng nhập | NenTang.vn</h1>
   <!-- 
-    1. Thuộc tính action="" dùng để chỉ định địa chỉ file PHP - nơi sẽ nhận dữ liệu từ CLIENT gởi đến và xử lý theo các LOGIC nào đó...
+    1. Thu tính action="" dùng để chỉ định địa chỉ file PHP - nơi sẽ nhận dữ liệu từ CLIENT gởi đến và xử lý theo các LOGIC nào đó...
     2. Phương thức (method) dùng để gởi request có thể sử dụng: GET hoặc POST
       * Nếu sử dụng phương thức GET:
       - Dữ liệu trong FORM sẽ được truyền theo dạng tham số trên địa chỉ URL theo định dạng sau:
@@ -22,7 +22,7 @@
       Ví dụ: http://localhost/hoc-php/xu-ly-form-dang-nhap.php?username=dnpcuong&password=123456
   -->
   <form name="frmLogin" id="frmLogin" action="xu-ly-dang-nhap.php" method="GET">
-    <table border="1" width="300px" cellspacing="0px" cellpadding="10px">
+    <table bordeR="1" width="300px" cellspacing="0px" cellpadding="10px">
       <tr>
         <td>Tài khoản:</td>
         <td>

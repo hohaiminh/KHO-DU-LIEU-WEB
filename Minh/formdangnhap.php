@@ -22,7 +22,7 @@
       Ví dụ: http://localhost/hoc-php/xu-ly-form-dang-nhap.php?username=dnpcuong&password=123456
   -->
   <form name="frmLogin" id="frmLogin" action="xu-ly-dang-nhap.php" method="GET">
-    <table bordeR="1" width="300px" cellspacing="0px" cellpadding="10px">
+    <table border="1" width="300px" cellspacing="0px" cellpadding="10px">
       <tr>
         <td>Tài khoản:</td>
         <td>

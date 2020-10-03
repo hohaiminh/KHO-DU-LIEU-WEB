@@ -97,7 +97,7 @@ if (session_id() === '') {
                 <?php
                     // Hiển thị tất cả lỗi trong PHP
                     // Chỉ nên hiển thị lỗi khi đang trong môi trường Phát triển (Development)
-                    // Không nên hiển thị lỗi trên môi trường Triển khai (Production)
+                    // Không nên hiển thị lỗi trên môi strường Triển khai (Production)
                     ini_set('display_errors', 1);
                     ini_set('display_startup_errors', 1);
                     error_reporting(E_ALL);
@@ -108,9 +108,15 @@ if (session_id() === '') {
 
                     // Chưa đăng nhập -> Xử lý logic/nghiệp vụ kiểm tra Tài khoản và Mật khẩu trong database
                     if (isset($_POST['btnLogin'])) {
-                        // Phân tách thông tin từ người dùng gởi đến qua Request POST
-                        $kh_tendangnhap = $_POST['kh_tendangnhap'];
-                        $kh_matkhau = $_POST['kh_matkhau'];
+
+                        // Bổ sung hàm addslashes để chống SQL Injection
+    $kh_tendangnhap = addslashes( $_POST['kh_tendangnhap'] );
+    $kh_matkhau = addslashes( $_POST['kh_matkhau'] );
+
+
+                        // // Phân tách thông tin từ người dùng gởi đến qua Request POST
+                        // $kh_tendangnhap = $_POST['kh_tendangnhap'];
+                        // $kh_matkhau = $_POST['kh_matkhau'];
 
                         // Câu lệnh SELECT Kiểm tra đăng nhập...
                         $sqlSelect = <<<EOT
@@ -139,6 +145,7 @@ EOT;
                 ?>
                 <!-- End block content -->
             </main>
+            </div>
         </div>
     </div>
 

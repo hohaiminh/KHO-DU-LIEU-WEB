@@ -6,7 +6,7 @@
   <title>Xử lý Request GET trong PHP | Nền Tảng .vn</title>
 </head>
 <body>
-  <h1>Form đăng nhập | NenTang.vn</h1>
+  <h1>Form đăng nhập |</h1>
   <!-- 
     1. Thu tính action="" dùng để chỉ định địa chỉ file PHP - nơi sẽ nhận dữ liệu từ CLIENT gởi đến và xử lý theo các LOGIC nào đó...
     2. Phương thức (method) dùng để gởi request có thể sử dụng: GET hoặc POST

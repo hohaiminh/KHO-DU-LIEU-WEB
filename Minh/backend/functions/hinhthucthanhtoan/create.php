@@ -62,7 +62,8 @@
         // C:\xampp\htdocs\web02\
         include_once(__DIR__ . '/../../../connect.php');
         // 2. Chuẩn bị QUERY
-        $httt_ten = $_POST['httt_ten']; //new new
+        $httt_ten = htmlentities( $_POST['httt_ten'] );
+        // $httt_ten = $_POST['httt_ten']; //new new
         $sql = "INSERT INTO `hinhthucthanhtoan`(httt_ten) VALUES('$httt_ten');";
         // 3. Thực thi
         mysqli_query($conn, $sql);
